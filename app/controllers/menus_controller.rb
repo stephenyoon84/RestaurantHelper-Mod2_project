@@ -9,6 +9,7 @@ class MenusController < ApplicationController
 
   def new
     @dish = Menu.new
+    @category_list = ["Appetizer", "Sushi", "Beverages", "Noodles"]
   end
 
   def create
@@ -24,6 +25,7 @@ class MenusController < ApplicationController
   end
 
   def edit
+    @category_list = ["Appetizer", "Sushi", "Beverages", "Noodles"]
   end
 
   def update

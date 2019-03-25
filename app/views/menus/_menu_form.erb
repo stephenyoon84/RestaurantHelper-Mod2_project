@@ -5,5 +5,8 @@
   <%= f.label :price %>
   <%= f.number_field :price %>
 
+  <%= f.label :category %>
+  <%= f.collection_select(:category, @category_list, :to_s, :to_s) %>
+
   <%= f.submit %>
 <% end %>

@@ -17,11 +17,30 @@ ammar = User.create!(name: "Ammar", username: "AA", password: "password")
 mickey = User.create!(name: "Mickey", username: "MM", password: "password")
 kelly = User.create!(name: "Kelly", username: "KK", password: "password")
 
+#Sushi
+tuna_sushi = Menu.create!(name: "Tuna Sushi", price: 4.50, category: "Sushi")
+salmon_sushi = Menu.create!(name: "Salmon Sushi", price: 4.25, category: "Sushi")
+yellowtail_sushi = Menu.create!(name: "Yellowtail Sushi", price: 3.00, category: "Sushi")
+shrimp_sushi = Menu.create!(name: "Shrimp Sushi", price: 3.75, category: "Sushi")
+poke = Menu.create!(name: "Poke", price: 8.00, category: "Sushi")
+#Noodles
+miso_ramen = Menu.create!(name: "Miso Ramen", price: 7.50, category: "Noodle")
+tonkotsu_ramen = Menu.create!(name: "Tonkotsu Ramen", price: 7.00, category: "Noodle")
+shoyu_ramen = Menu.create!(name: "Shoyu Ramen", price: 6.75, category: "Noodle")
+spicy_miso_ramen = Menu.create!(name: "Spicy Miso Ramen", price: 8.00, category: "Noodle")
+#Appetizer
+edamame = Menu.create!(name: "Edamame", price: 1.50, category: "Appetizer")
+wonton_soup = Menu.create!(name: "Wonton Soup", price: 1.75, category: "Appetizer")
+tempura = Menu.create!(name: "Tempura", price: 2.00, category: "Appetizer")
+shrimp_rangoon = Menu.create!(name: "Shrimp Rangoon", price: 2.50, category: "Appetizer")
+#Beverages
+sake = Menu.create!(name: "Sake", price: 20.00, category: "Beverages")
+ichiban = Menu.create!(name: "Ichiban", price: 5.00, category: "Beverages")
+sapporo = Menu.create!(name: "Sapporo", price: 5.50, category: "Beverages")
+mango_ramune = Menu.create!(name: "Mango Ramune", price: 1.50, category: "Beverages")
+strawberry_ramune = Menu.create!(name: "Strawberry Ramune", price: 1.50, category: "Beverages")
+lychee_ramune = Menu.create!(name: "Lychee Ramune", price: 1.50, category: "Beverages")
 
-sushi = Menu.create!(name: "Sushi", price: 10.00)
-ramen = Menu.create!(name: "Ramen", price: 4.00)
-poke = Menu.create!(name: "Poke", price: 8.00)
-sake = Menu.create!(name: "Sake", price: 20.00)
-edamame = Menu.create!(name: "Edamame", price: 1.50)
 
-test_order = Cart.create!(user_id: 1, menu_id: 1)
+
+test_order = Cart.create!(user: stephen, menu: tuna_sushi)
