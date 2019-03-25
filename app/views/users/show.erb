@@ -1,0 +1,7 @@
+<h1>Detail for <%= @user.username %></h1>
+<h3>Name: <%= @user.name %></h3>
+<h3>Role: <%= @user.role %></h3>
+<%= link_to "Edit", edit_user_path %>
+<%= form_tag @user, method: "DELETE" do %>
+  <%= submit_tag "Delete my account" %>
+<% end %>
