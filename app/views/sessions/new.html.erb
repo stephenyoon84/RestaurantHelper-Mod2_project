@@ -1,0 +1,11 @@
+<h1>Log In</h1>
+
+<div class="error"><%= flash["notice"] %></div>
+
+<%= form_tag '/login' do %>
+<%= label :username, "Username:" %>
+<%= text_field_tag :username %>
+<%= label :password, "Password:" %>
+<%= password_field_tag :password %>
+<%= submit_tag "Log In" %> or <%= link_to "Sign Up", new_user_path %>
+<% end %>
