@@ -1,0 +1,13 @@
+<h1> Menu for Taste of Japan </h1>
+
+<ul>
+  <% @dishes.each do |dish| %>
+    <li>
+      <%= link_to dish.name, dish %> -
+      $<%= dish.price %>
+       <%# add the add_to_cart button.  %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create New Dish", new_menu_path %>

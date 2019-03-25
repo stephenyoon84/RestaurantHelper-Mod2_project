@@ -1,0 +1,11 @@
+<h1><%= @dish.name %> Page.</h1>
+
+<h2> Price: $<%= @dish.price %></h2>
+<h2> Ingredients: </h2>
+
+<%= link_to "Return to Menu", menus_path %>
+
+<%= link_to "Edit Dish", edit_menu_path %>
+<%= form_tag @dish, method: "DELETE" do %>
+  <%= submit_tag "Delete this Dish" %>
+<% end %>
