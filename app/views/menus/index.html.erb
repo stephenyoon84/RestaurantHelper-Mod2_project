@@ -5,6 +5,7 @@
     <li>
       <%= link_to dish.name, dish %> -
       $<%= dish.price %>
+      <%= button_to "Add", {controller: 'carts', action: 'create', id: dish.id} %>
     </li>
   <% end %>
 </ul>

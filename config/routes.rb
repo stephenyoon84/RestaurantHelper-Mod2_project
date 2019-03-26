@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 
   get '/carts', to: 'carts#show'
+  post '/carts', to: 'carts#create'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

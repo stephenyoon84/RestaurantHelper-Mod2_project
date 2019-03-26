@@ -7,7 +7,12 @@ class CartsController < ApplicationController
   end
 
   def show
-     @total = @dishes.inject(0){|sum, dish| sum + dish.menu.price}
+    @total = @dishes.inject(0){|sum, dish| sum + dish.menu.price}
+  end
+
+  def create
+    Cart.create!(user_id: session[:user_id], menu_id: params[:id])
+    redirect_to menus_path
   end
 
   private
