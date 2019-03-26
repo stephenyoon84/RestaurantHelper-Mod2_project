@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20190325212449) do
     t.string "name"
     t.string "username"
     t.string "password_digest"
-    t.string "role", default: "new_customer"
+    t.string "role", default: "Customer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
