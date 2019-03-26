@@ -17,3 +17,7 @@
 #logout, #login {
   float: right;
 }
+
+.button_to {
+  display: inline;
+}

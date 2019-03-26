@@ -17,7 +17,7 @@
           <%= submit_tag "Log Out" %>
         <% end %>
       <% else %>
-        <%= link_to "Log In", login_path, id: "login" %>
+        <%= button_to "Log In", login_path, method: :get, id: "login" %>
       <% end %>
 
       <%= link_to "Menu", menus_path %>
