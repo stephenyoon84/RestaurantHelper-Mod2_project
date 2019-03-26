@@ -4,7 +4,7 @@
   <ul>
     <% @dishes.each do |dish| %>
         <li>
-          <%= dish.menu.name %> - $<%= dish.menu.price %>
+          <%= dish.menu.name %> - $<%= number_with_precision(dish.menu.price, :precision => 2) %>
           <%= button_to "Remove", {controller: 'carts', action: 'remove_item', id: dish.id} %>
         </li>
 
@@ -15,7 +15,7 @@
 <% if @total == 0 %>
   <h4> Your cart is currently empty! </h4>
 <% else %>
-  <h4> Your total is: $<%=  @total %></h4>
+  <h4> Your total is: $<%=  number_with_precision(@total, :precision => 2) %></h4>
 <% end %>
 
 

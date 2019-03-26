@@ -21,7 +21,7 @@
         <% category.each do |d| %>
           <tr>
             <td><%= link_to d.name, d %></td>
-            <td><%= d.price %></td>
+            <td><%= number_with_precision(d.price, :precision => 2) %></td>
             <% if session[:user_id] %>
               <td><%= button_to "Add", {controller: 'carts', action: 'create', id: d.id} %></td>
             <% end %>
