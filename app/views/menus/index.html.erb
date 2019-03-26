@@ -1,6 +1,8 @@
 <h1> Menu for Taste of Japan </h1>
 
-<%= link_to "Create New Dish", new_menu_path %>
+<% if session[:user_id] && User.find_by(id: session[:user_id]).role == "admin" %>
+  <%= link_to "Create New Dish", new_menu_path %>
+<% end %>
 
 <br><br>
 
