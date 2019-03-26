@@ -13,7 +13,7 @@ Menu.delete_all
 
 
 stephen = User.create!(name: "Stephen", username: "SS", password: "password")
-ammar = User.create!(name: "Ammar", username: "AA", password: "password")
+ammar = User.create!(name: "Ammar", username: "AA", password: "password", role: "admin")
 mickey = User.create!(name: "Mickey", username: "MM", password: "password")
 kelly = User.create!(name: "Kelly", username: "KK", password: "password")
 
