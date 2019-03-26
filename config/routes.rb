@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
 
-
+  get '/carts/index', to: 'carts#index'
   get '/carts', to: 'carts#show'
   post '/carts', to: 'carts#create'
+  post '/carts/remove', to: 'carts#remove_item'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

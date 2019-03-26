@@ -1,0 +1,6 @@
+<h1>Order list</h1>
+<ol>
+  <% @dishes.each do |d| %>
+    <li><%= d.menu.name  %></li>
+  <% end %>
+</ol>

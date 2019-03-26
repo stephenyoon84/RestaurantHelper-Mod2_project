@@ -3,7 +3,9 @@ class CartsController < ApplicationController
   before_action :get_dishes, only: :show
 
   def index
-
+    @dishes = Cart.all
+    @dishes = @dishes.each{|d| d.paid ? @dishes.delete(d) : d.user}
+    # byebug
   end
 
   def show
@@ -13,6 +15,12 @@ class CartsController < ApplicationController
   def create
     Cart.create!(user_id: session[:user_id], menu_id: params[:id])
     redirect_to menus_path
+  end
+
+  def remove_item
+    @item = Cart.find(params[:id])
+    @item.delete
+    redirect_to carts_path
   end
 
   private

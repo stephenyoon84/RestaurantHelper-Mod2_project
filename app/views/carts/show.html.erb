@@ -5,6 +5,7 @@
     <% @dishes.each do |dish| %>
         <li>
           <%= dish.menu.name %> - $<%= dish.menu.price %>
+          <%= button_to "Remove", {controller: 'carts', action: 'remove_item', id: dish.id} %>
         </li>
 
     <% end %>
