@@ -16,3 +16,6 @@
 <% else %>
   <h4> Your total is: $<%=  @total %></h4>
 <% end %>
+
+
+<%= link_to "Back", user_path(session["user_id"]) %>
