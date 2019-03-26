@@ -20,7 +20,9 @@
           <tr>
             <td><%= link_to d.name, d %></td>
             <td><%= d.price %></td>
-            <td><%= button_to "Add", {controller: 'carts', action: 'create', id: d.id} %></td>
+            <% if session[:user_id] %>
+              <td><%= button_to "Add", {controller: 'carts', action: 'create', id: d.id} %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

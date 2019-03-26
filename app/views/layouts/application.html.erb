@@ -13,6 +13,7 @@
       <%= link_to "Home", root_path %>
       <% if session["user_id"] %>
         <%= link_to "Profile", user_path(session["user_id"]) %>
+        <%= link_to "My Cart", carts_path %>
         <%= form_tag '/logout', id: "logout" do %>
           <%= submit_tag "Log Out" %>
         <% end %>
@@ -21,7 +22,6 @@
       <% end %>
 
       <%= link_to "Menu", menus_path %>
-      <%= link_to "My Cart", carts_path %>
     </nav>
     <%= yield %>
   </body>
