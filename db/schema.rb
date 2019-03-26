@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20190325212449) do
 
   create_table "menus", force: :cascade do |t|
     t.string "name"
-    t.float "price"
+    t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "category"

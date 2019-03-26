@@ -44,3 +44,4 @@ lychee_ramune = Menu.create!(name: "Lychee Ramune", price: 1.50, category: "Beve
 
 
 test_order = Cart.create!(user: stephen, menu: tuna_sushi)
+test_order2 = Cart.create!(user: stephen, menu: yellowtail_sushi)

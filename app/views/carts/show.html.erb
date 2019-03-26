@@ -1,0 +1,18 @@
+<h1> <%= User.find_by(id: session["user_id"]).name %></h1>
+
+<div class="">
+  <ul>
+    <% @dishes.each do |dish| %>
+        <li>
+          <%= dish.menu.name %> - $<%= dish.menu.price %>
+        </li>
+
+    <% end %>
+  </ul>
+</div>
+
+<% if @total == 0 %>
+  <h4> Your cart is currently empty! </h4>
+<% else %>
+  <h4> Your total is: $<%=  @total %></h4>
+<% end %>
