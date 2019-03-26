@@ -5,6 +5,15 @@ class MenusController < ApplicationController
 
   def index
     @dishes = Menu.all
+    @appetizer = @dishes.select{|d| d.category == "Appetizers"}
+    @sushi = @dishes.select{|d| d.category == "Sushi"}
+    @noodles = @dishes.select{|d| d.category == "Noodles"}
+    @beverages = @dishes.select{|d| d.category == "Beverages"}
+    @category_list = [@appetizer, @sushi, @noodles, @beverages]
+
+
+
+    # byebug
   end
 
   def new

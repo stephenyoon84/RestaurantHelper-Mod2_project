@@ -24,15 +24,15 @@ yellowtail_sushi = Menu.create!(name: "Yellowtail Sushi", price: 3.00, category:
 shrimp_sushi = Menu.create!(name: "Shrimp Sushi", price: 3.75, category: "Sushi")
 poke = Menu.create!(name: "Poke", price: 8.00, category: "Sushi")
 #Noodles
-miso_ramen = Menu.create!(name: "Miso Ramen", price: 7.50, category: "Noodle")
-tonkotsu_ramen = Menu.create!(name: "Tonkotsu Ramen", price: 7.00, category: "Noodle")
-shoyu_ramen = Menu.create!(name: "Shoyu Ramen", price: 6.75, category: "Noodle")
-spicy_miso_ramen = Menu.create!(name: "Spicy Miso Ramen", price: 8.00, category: "Noodle")
-#Appetizer
-edamame = Menu.create!(name: "Edamame", price: 1.50, category: "Appetizer")
-wonton_soup = Menu.create!(name: "Wonton Soup", price: 1.75, category: "Appetizer")
-tempura = Menu.create!(name: "Tempura", price: 2.00, category: "Appetizer")
-shrimp_rangoon = Menu.create!(name: "Shrimp Rangoon", price: 2.50, category: "Appetizer")
+miso_ramen = Menu.create!(name: "Miso Ramen", price: 7.50, category: "Noodles")
+tonkotsu_ramen = Menu.create!(name: "Tonkotsu Ramen", price: 7.00, category: "Noodles")
+shoyu_ramen = Menu.create!(name: "Shoyu Ramen", price: 6.75, category: "Noodles")
+spicy_miso_ramen = Menu.create!(name: "Spicy Miso Ramen", price: 8.00, category: "Noodles")
+#Appetizers
+edamame = Menu.create!(name: "Edamame", price: 1.50, category: "Appetizers")
+wonton_soup = Menu.create!(name: "Wonton Soup", price: 1.75, category: "Appetizers")
+tempura = Menu.create!(name: "Tempura", price: 2.00, category: "Appetizers")
+shrimp_rangoon = Menu.create!(name: "Shrimp Rangoon", price: 2.50, category: "Appetizers")
 #Beverages
 sake = Menu.create!(name: "Sake", price: 20.00, category: "Beverages")
 ichiban = Menu.create!(name: "Ichiban", price: 5.00, category: "Beverages")

@@ -1,13 +1,30 @@
 <h1> Menu for Taste of Japan </h1>
 
-<ul>
-  <% @dishes.each do |dish| %>
-    <li>
-      <%= link_to dish.name, dish %> -
-      $<%= dish.price %>
-      <%= button_to "Add", {controller: 'carts', action: 'create', id: dish.id} %>
-    </li>
-  <% end %>
-</ul>
-
 <%= link_to "Create New Dish", new_menu_path %>
+
+<br><br>
+
+<% @category_list.each do |category| %>
+  <div id=<%= category.first.category %> class="menu_list">
+    <h3><%= category.first.category %></h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% category.each do |d| %>
+          <tr>
+            <td><%= link_to d.name, d %></td>
+            <td><%= d.price %></td>
+            <td><%= button_to "Add", {controller: 'carts', action: 'create', id: d.id} %></td>
+          </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+  </div>
+<% end %>
