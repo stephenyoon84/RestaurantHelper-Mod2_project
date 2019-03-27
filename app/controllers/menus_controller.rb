@@ -1,6 +1,7 @@
 class MenusController < ApplicationController
 
   before_action :get_menu, only: [:show,:edit,:update,:destroy]
+  skip_before_action :authorized, only: [:index, :show]
 
 
   def index
@@ -10,10 +11,6 @@ class MenusController < ApplicationController
     @noodles = @dishes.select{|d| d.category == "Noodles"}
     @beverages = @dishes.select{|d| d.category == "Beverages"}
     @category_list = [@appetizer, @sushi, @noodles, @beverages]
-
-
-
-    # byebug
   end
 
   def new
