@@ -17,6 +17,11 @@
         <%= form_tag '/logout', id: "logout" do %>
           <%= submit_tag "Log Out" %>
         <% end %>
+
+        <% if session["user_role"] == "chef" %>
+          <%= link_to "Cooking List", carts_index_path %>
+        <% end %>
+
       <% else %>
         <%= button_to "Log In", login_path, method: :get, id: "login" %>
       <% end %>

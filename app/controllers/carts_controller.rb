@@ -3,9 +3,9 @@ class CartsController < ApplicationController
   before_action :get_unpaid_dishes, only: [:show, :order]
 
   def index
-    @dishes = Cart.all
-    @dishes = @dishes.each{|d| d.paid ? @dishes.delete(d) : d.user}
-    # byebug
+    @uncooked_dishes = []
+    @all_dishes = Cart.all
+    @all_dishes.each {|dish| dish.done ? dish : @uncooked_dishes << dish}
   end
 
   def show
@@ -28,6 +28,13 @@ class CartsController < ApplicationController
   def ty
   end
 
+  def complete_order
+    @item = Cart.find(params[:id])
+    @item.done = true
+    @item.save
+    redirect_to carts_index_path
+  end
+
   def remove_item
     @item = Cart.find(params[:id])
     @item.delete
@@ -38,7 +45,6 @@ class CartsController < ApplicationController
 
   def get_all_dishes
     @all_dishes = Cart.where("user_id = ?", User.find_by(id: session["user_id"]).id)
-
   end
 
   def get_unpaid_dishes

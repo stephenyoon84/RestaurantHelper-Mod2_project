@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/carts/ty', to: 'carts#ty'
   post '/carts', to: 'carts#create'
   post '/carts/order', to: 'carts#order'
+  post '/carts/complete', to: 'carts#complete_order'
   post '/carts/remove', to: 'carts#remove_item'
 
   get '/login', to: 'sessions#new'

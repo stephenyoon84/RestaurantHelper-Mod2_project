@@ -1,6 +1,24 @@
 <h1>Order list</h1>
-<ol>
-  <% @dishes.each do |d| %>
-    <li><%= d.menu.name  %></li>
-  <% end %>
-</ol>
+
+<% if !@uncooked_dishes.empty? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Menu Item</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @uncooked_dishes.each do |d| %>
+      <tr>
+        <td><%= d.user.name %></td>
+        <td><%= d.menu.name  %></td>
+        <td><%= button_to "Done!", {controller: 'carts', action: 'complete_order', id: d.id} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h2>Currently Order List is Empty. Quick take a break! </h2>
+<% end %>

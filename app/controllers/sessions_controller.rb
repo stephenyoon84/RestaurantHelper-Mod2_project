@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: username)
     if user && user.authenticate(params[:password])
         session["user_id"] = user.id
+        session["user_role"] = user.role
         redirect_to user
     else
         flash[:notice] = "No username/password found with that combination"
