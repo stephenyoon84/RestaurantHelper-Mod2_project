@@ -4,9 +4,10 @@
 <h2> Category: <%= @dish.category %></h2>
 <h2> Ingredients: </h2>
 
-<%= link_to "Return to Menu", menus_path %>
-
-<%= link_to "Edit Dish", edit_menu_path %>
-<%= form_tag @dish, method: "DELETE" do %>
-  <%= submit_tag "Delete this Dish" %>
+<br><br><br>
+<% if session[:user_id] && User.find_by(id: session[:user_id]).role == "admin" %>
+  <%= button_to "Edit this Dish", edit_menu_path, method: :get %>
+  <%= form_tag @dish, method: "DELETE" do %>
+    <%= submit_tag "Delete this Dish" %>
+  <% end %>
 <% end %>
