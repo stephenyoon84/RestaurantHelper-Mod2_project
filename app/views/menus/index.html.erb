@@ -4,8 +4,6 @@
   <%= link_to "Create New Dish", new_menu_path %>
 <% end %>
 
-<br><br>
-
 <% @category_list.each do |category| %>
   <div id=<%= category.first.category %> class="menu_list">
     <h3><%= category.first.category %></h3>

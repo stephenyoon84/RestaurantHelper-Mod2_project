@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
 
-  before_action :get_dishes, only: :show
+  before_action :get_unpaid_dishes, only: [:show, :order]
 
   def index
     @dishes = Cart.all
@@ -17,6 +17,17 @@ class CartsController < ApplicationController
     redirect_to menus_path
   end
 
+  def order
+    @dishes.each do |dish|
+      dish.paid = true
+      dish.save
+    end
+    redirect_to carts_ty_path
+  end
+
+  def ty
+  end
+
   def remove_item
     @item = Cart.find(params[:id])
     @item.delete
@@ -25,11 +36,16 @@ class CartsController < ApplicationController
 
   private
 
-  def get_dishes
-    @dishes = Cart.where("user_id = ?", User.find_by(id: session["user_id"]).id)
+  def get_all_dishes
+    @all_dishes = Cart.where("user_id = ?", User.find_by(id: session["user_id"]).id)
 
-    if !@dishes.nil?
-      @dishes.each {|dish| dish.paid ? @dishes.delete(dish) : dish}
+  end
+
+  def get_unpaid_dishes
+    get_all_dishes()
+    @dishes = []
+    if !@all_dishes.nil?
+      @all_dishes.each {|dish| dish.paid ? dish : @dishes << dish}
     end
   end
 end
