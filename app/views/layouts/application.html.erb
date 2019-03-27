@@ -13,7 +13,11 @@
       <%= link_to "Home", root_path %>
       <% if session["user_id"] %>
         <%= link_to "Profile", user_path(session["user_id"]) %>
-        <%= link_to "My Cart", carts_path %>
+
+        <% if Cart.where('user_id = ? ', session['user_id']).last.paid == false %>
+          <%= link_to "My Cart", carts_path %>
+        <% end %>
+
         <%= form_tag '/logout', id: "logout" do %>
           <%= submit_tag "Log Out" %>
         <% end %>

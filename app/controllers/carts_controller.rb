@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   def index
     @uncooked_dishes = []
     @all_dishes = Cart.all
-    @all_dishes.each {|dish| dish.done ? dish : @uncooked_dishes << dish}
+    @all_dishes.each {|dish| !dish.done && dish.paid ? @uncooked_dishes << dish : dish }
   end
 
   def show
