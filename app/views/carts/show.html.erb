@@ -1,21 +1,29 @@
-<h1> <%= User.find_by(id: session["user_id"]).name %></h1>
+<h1> Your Cart:</h1>
 
-<div class="">
-  <ul>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
     <% @dishes.each do |dish| %>
-        <li>
-          <%= dish.menu.name %> - $<%= number_with_precision(dish.menu.price, :precision => 2) %>
-          <%= button_to "Remove", {controller: 'carts', action: 'remove_item', id: dish.id} %>
-        </li>
-
+      <tr>
+        <td><%= dish.menu.name %></td>
+        <td>$<%= number_with_precision(dish.menu.price, :precision => 2) %></td>
+        <td><%= button_to "Remove", {controller: 'carts', action: 'remove_item', id: dish.id} %></td>
+      </tr>
     <% end %>
-  </ul>
-</div>
+  </tbody>
+</table>
 
 <% if @total == 0 %>
   <h4> Your cart is currently empty! </h4>
 <% else %>
   <h4> Your total is: $<%=  number_with_precision(@total, :precision => 2) %></h4>
+  <%= button_to "Pay for Order", {controller: 'carts', action: 'order'} %>
 <% end %>
 
 
