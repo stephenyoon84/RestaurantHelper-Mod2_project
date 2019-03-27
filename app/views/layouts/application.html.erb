@@ -11,18 +11,20 @@
   <body>
     <nav>
       <%= link_to "Home", root_path %>
-      <% if session["user_id"] %>
-        <%= link_to "Profile", user_path(session["user_id"]) %>
+      <%= link_to "Menu", menus_path %>
+      <% if current_user %>
 
-        <% if Cart.where('user_id = ? ', session['user_id']).last.paid == false %>
+        <% if Cart.where('user_id = ? ', current_user.id).last.paid == false %>
           <%= link_to "My Cart", carts_path %>
         <% end %>
+
+        <%= link_to "Profile", user_path(current_user) %>
 
         <%= form_tag '/logout', id: "logout" do %>
           <%= submit_tag "Log Out" %>
         <% end %>
 
-        <% if session["user_role"] == "chef" %>
+        <% if current_user.role == "chef" %>
           <%= link_to "Cooking List", carts_index_path %>
         <% end %>
 
@@ -30,7 +32,6 @@
         <%= button_to "Log In", login_path, method: :get, id: "login" %>
       <% end %>
 
-      <%= link_to "Menu", menus_path %>
     </nav>
     <%= yield %>
   </body>
