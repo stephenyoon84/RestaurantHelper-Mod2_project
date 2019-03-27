@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorized, only: :home
+  before_action :standardize, only: [:create, :update]
+  skip_before_action :authorized, only: [:home, :new, :create]
 
   def index
   end
@@ -14,7 +15,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    # byebug
+    #phone_num = :standardize #params[:user][:phone_number].gsub(/\D/, "")
+    # (phone_number: phone_num)
+
+    if @user.update(phone_number: @phone_num)#phone_num)#@user.save
+      session[:user_id] = @user.id
       redirect_to @user
     else
       render :new
@@ -25,7 +31,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update(user_params) && @user.update(phone_number: @phone_num)
       redirect_to user_path
     else
       render :edit
@@ -45,5 +51,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :username, :password, :password_confirmation)
+  end
+
+  def standardize
+    @phone_num = params[:user][:phone_number].gsub(/\D/, "")
+    # self.gsub(/\D/, "")
   end
 end

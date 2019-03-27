@@ -12,10 +12,10 @@ User.delete_all
 Menu.delete_all
 
 
-stephen = User.create!(name: "Stephen", username: "SS", password: "password", role: "chef")
-ammar = User.create!(name: "Ammar", username: "AA", password: "password", role: "admin")
-mickey = User.create!(name: "Mickey", username: "MM", password: "password")
-kelly = User.create!(name: "Kelly", username: "KK", password: "password")
+stephen = User.create!(name: "Stephen", username: "SS", password: "password", phone_number: 1231231234, role: "chef")
+ammar = User.create!(name: "Ammar", username: "AA", password: "password", phone_number: 2342342345, role: "admin")
+mickey = User.create!(name: "Mickey", username: "MM", password: "password", phone_number: 3453453456)
+kelly = User.create!(name: "Kelly", username: "KK", password: "password", phone_number: 4564564567)
 
 #Sushi
 tuna_sushi = Menu.create!(name: "Tuna Sushi", price: 4.50, category: "Sushi")

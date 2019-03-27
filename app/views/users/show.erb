@@ -1,6 +1,6 @@
 <h1>Detail for <%= @user.username %></h1>
 <h3>Name: <%= @user.name %></h3>
-<h3>Role: <%= @user.role %></h3>
+<h3>Phone: <%= @user.to_phone %></h3>
 
 <div id="editdelete">
   <%= button_to "Edit", edit_user_path, method: :get %>

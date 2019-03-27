@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190327124715) do
+ActiveRecord::Schema.define(version: 20190327170053) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20190327124715) do
     t.string "role", default: "Customer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "phone_number", limit: 10
   end
 
 end
