@@ -14,10 +14,75 @@
  *= require_self
  */
 
-#logout, #login {
-  float: right;
+* {
+ font-family: 'Indie Flower', cursive;
+}
+
+header {
+ background-color: rgba(255, 192, 203, 1);
+ height: 100px;
+}
+
+nav {
+  font-size: 25px;
+  background-color: rgba(255, 192, 203, 1);
+}
+
+nav a {
+  text-decoration: none;
+  text-decoration-color: black;
+  background-color: rgba(210, 215, 211, 0.5);
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Indie Flower', cursive;
+  margin-left: 20px;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 4em;
+}
+
+
+footer {
+  background-color: pink;
+  height: 100px;
+}
+
+body {
+ width: 1000px;
+ position: relative;
+ margin: 0 auto;
+ background-color: rgba(210, 215, 211, 0.5);
+}
+
+table {
+  width: 300px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+div.main {
+  background-color: rgba(255, 192, 203, 1);
+}
+
+div.content {
+  background-color: rgba(210, 215, 211, 0.5);
 }
 
 .button_to {
   display: inline;
+}
+
+#logout, #login {
+  float: right;
 }

@@ -15,11 +15,12 @@ class MenusController < ApplicationController
 
   def new
     @dish = Menu.new
-    @category_list = ["Appetizer", "Sushi", "Beverages", "Noodles"]
+    @category_list = ["Appetizers", "Sushi", "Beverages", "Noodles"]
   end
 
   def create
     @dish = Menu.new(menu_params)
+    # @category_list = ["Appetizers", "Sushi", "Beverages", "Noodles"]
     if @dish.save
       redirect_to @dish
     else
@@ -31,7 +32,7 @@ class MenusController < ApplicationController
   end
 
   def edit
-    @category_list = ["Appetizer", "Sushi", "Beverages", "Noodles"]
+    @category_list = ["Appetizers", "Sushi", "Beverages", "Noodles"]
   end
 
   def update
@@ -55,7 +56,7 @@ class MenusController < ApplicationController
 
   def menu_params
     # dont forget to add ingredients to permit. when you add ingredients to model.
-    params.require(:menu).permit(:name, :price)
+    params.require(:menu).permit(:name, :price, :category)
   end
 
 

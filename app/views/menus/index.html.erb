@@ -3,6 +3,7 @@
 <% if session[:user_id] && current_user.role == 'Admin'%>
   <%= link_to "Create New Dish", new_menu_path %>
 <% end %>
+<br>
 
 <% @category_list.each do |category| %>
   <div id=<%= category.first.category %> class="menu_list">
