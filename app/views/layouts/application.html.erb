@@ -24,7 +24,7 @@
           <%= submit_tag "Log Out" %>
         <% end %>
 
-        <% if current_user.role == "chef" %>
+        <% if current_user.role == "Chef" %>
           <%= link_to "Cooking List", carts_index_path %>
         <% end %>
 

@@ -2,10 +2,10 @@
 <h3>Name: <%= @user.name %></h3>
 <h3>Phone: <%= @user.to_phone %></h3>
 
-<% if current_user.role != "Customer" %>
+<% if current_user.role == "Admin" %>
   <h3>Role: <%= @user.role %></h3>
+  <h3>Total Spent: $<%= number_with_precision(@user.carts.inject(0){|s, i| s + i.menu.price}, :precision => 2) %></h3>
 <% end %>
-
 
 <div id="editdelete">
   <%= button_to "Edit", edit_user_path, method: :get %>
@@ -14,3 +14,7 @@
     <%= submit_tag "Delete my account" %>
   <% end %>
 </div>
+
+<% if current_user.role == "Admin" %>
+  <%= render 'admin_search' %>
+<% end %>

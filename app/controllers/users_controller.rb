@@ -8,6 +8,16 @@ class UsersController < ApplicationController
   end
 
   def show
+    if params[:q]
+      @users = User.find_by(phone_number: params[:q].to_i)
+    end
+    if !@users.nil?
+      @all_dishes = @users.carts
+      @dishes = []
+      if !@all_dishes.nil?
+        @all_dishes.each {|dish| dish.done ? @dishes << dish : dish}
+      end
+    end
   end
 
   def new
@@ -47,7 +57,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :username, :password, :password_confirmation)
+    params.require(:user).permit(:name, :username, :password, :password_confirmation, :role)
   end
 
   def standardize

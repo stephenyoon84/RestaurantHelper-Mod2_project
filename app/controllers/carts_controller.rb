@@ -44,7 +44,7 @@ class CartsController < ApplicationController
   private
 
   def get_all_dishes
-    @all_dishes = Cart.where("user_id = ?", User.find_by(id: session["user_id"]).id)
+    @all_dishes = current_user.carts
   end
 
   def get_unpaid_dishes
@@ -54,4 +54,6 @@ class CartsController < ApplicationController
       @all_dishes.each {|dish| dish.paid ? dish : @dishes << dish}
     end
   end
+
+
 end

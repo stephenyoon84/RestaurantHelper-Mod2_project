@@ -1,0 +1,23 @@
+
+<h4>Order History</h4>
+
+<% if !@dishes.empty? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Order Date</th>
+        <th>Time</th>
+        <th>Order Dish</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @dishes.reverse.each do |cart| %>
+        <tr>
+          <td><%= cart.updated_at.strftime("%b %e, %y")%></td>
+          <td><%= cart.updated_at.strftime("%k:%M") %></td>
+          <td><%= cart.menu.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

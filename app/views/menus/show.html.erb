@@ -5,7 +5,7 @@
 <h2> Ingredients: </h2>
 
 <br><br><br>
-<% if session[:user_id] && User.find_by(id: session[:user_id]).role == "admin" %>
+<% if session[:user_id] && User.find_by(id: session[:user_id]).role == "Admin" %>
   <%= button_to "Edit this Dish", edit_menu_path, method: :get %>
   <%= form_tag @dish, method: "DELETE" do %>
     <%= submit_tag "Delete this Dish" %>

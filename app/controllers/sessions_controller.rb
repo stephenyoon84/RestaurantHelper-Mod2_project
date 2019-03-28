@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session["user_id"] = user.id
       session["user_role"] = user.role
-      if user.role == 'chef'
+      if user.role == 'Chef'
         redirect_to carts_index_path
-      # elsif user.role == 'admin'
+      # elsif current_user.role == 'Admin'
       else
         redirect_to menus_path
       end
