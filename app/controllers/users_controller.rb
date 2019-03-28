@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    get_dishes(@user)
   end
 
 
@@ -15,14 +16,9 @@ class UsersController < ApplicationController
     @top_5 =Cart.order_counter[0..4]
     if params[:q]
       @users = User.find_by(phone_number: params[:q].to_i)
+      @favorite_dish = @users.carts.order_counter.max_by{|a| a[1]}[0]
     end
-    if !@users.nil?
-      @all_dishes = @users.carts
-      @dishes = []
-      if !@all_dishes.nil?
-        @all_dishes.each {|dish| dish.done ? @dishes << dish : dish}
-      end
-    end
+    get_dishes(@users)
   end
 
   def new
@@ -67,5 +63,15 @@ class UsersController < ApplicationController
 
   def standardize
     @phone_num = params[:user][:phone_number].gsub(/\D/, "")
+  end
+
+  def get_dishes(arg)
+    if !arg.nil?
+      @all_dishes = arg.carts
+      @dishes = []
+      if !@all_dishes.nil?
+        @all_dishes.each {|dish| dish.paid ? @dishes << dish : dish}
+      end
+    end
   end
 end

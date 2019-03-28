@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       session["user_role"] = user.role
       if user.role == 'Chef'
         redirect_to carts_index_path
-      # elsif current_user.role == 'Admin'
+      elsif current_user.role == 'Admin'
+        redirect_to analytics_path
       else
         redirect_to menus_path
       end
