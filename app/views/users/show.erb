@@ -2,6 +2,11 @@
 <h3>Name: <%= @user.name %></h3>
 <h3>Phone: <%= @user.to_phone %></h3>
 
+<% if current_user.role != "Customer" %>
+  <h3>Role: <%= @user.role %></h3>
+<% end %>
+
+
 <div id="editdelete">
   <%= button_to "Edit", edit_user_path, method: :get %>
 

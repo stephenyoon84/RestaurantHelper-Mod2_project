@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20190327170053) do
     t.string "role", default: "Customer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "phone_number", limit: 10
+    t.integer "phone_number", limit: 8
   end
 
 end

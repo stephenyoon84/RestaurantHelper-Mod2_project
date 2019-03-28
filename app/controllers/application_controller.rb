@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless logged_in?
   end
 
+  def restricted_access
+    redirect_to user_path(current_user) unless current_user.role == "admin" || current_user.id == params[:id].to_i
+  end
+
 end

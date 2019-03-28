@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
   before_action :standardize, only: [:create, :update]
+  before_action :restricted_access, only: [:show, :edit]
   skip_before_action :authorized, only: [:home, :new, :create]
 
   def index
@@ -15,11 +16,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    # byebug
-    #phone_num = :standardize #params[:user][:phone_number].gsub(/\D/, "")
-    # (phone_number: phone_num)
-
-    if @user.update(phone_number: @phone_num)#phone_num)#@user.save
+    if @user.update(phone_number: @phone_num)
       session[:user_id] = @user.id
       redirect_to @user
     else
