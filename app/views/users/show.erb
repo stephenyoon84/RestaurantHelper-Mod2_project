@@ -14,7 +14,3 @@
     <%= submit_tag "Delete my account" %>
   <% end %>
 </div>
-
-<% if current_user.role == "Admin" %>
-  <%= render 'admin_search' %>
-<% end %>

@@ -28,6 +28,11 @@
           <%= link_to "Cooking List", carts_index_path %>
         <% end %>
 
+        <% if current_user.role == "Admin" %>
+          <%= link_to "Analytics Page", analytics_path %>
+        <% end %>
+
+
       <% else %>
         <%= button_to "Log In", login_path, method: :get, id: "login" %>
       <% end %>

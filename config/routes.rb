@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
 
-  get '/analyticpage', to: 'users#index'
+  get '/analytics', to: 'users#analytics'
   resources :users, except: [:index]
   root 'users#home'
 

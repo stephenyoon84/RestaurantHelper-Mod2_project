@@ -1,0 +1,10 @@
+
+<h4>Most Popular Menu Items</h4>
+<ol>
+  <% @top_5.each do |k, v| %>
+  <li><%= k %> -  <%= v %></li>
+  <% end %>
+</ol>
+
+
+<%= render 'admin_search' %>

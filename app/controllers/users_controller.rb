@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy]
   before_action :standardize, only: [:create, :update]
-  before_action :restricted_access, only: [:show, :edit]
+  before_action :restricted_access, only: [:show, :edit, :analytics]
   skip_before_action :authorized, only: [:home, :new, :create]
 
   def index
   end
 
   def show
+  end
+
+
+  def analytics
+    @top_5 =Cart.order_counter[0..4]
     if params[:q]
       @users = User.find_by(phone_number: params[:q].to_i)
     end
@@ -62,6 +67,5 @@ class UsersController < ApplicationController
 
   def standardize
     @phone_num = params[:user][:phone_number].gsub(/\D/, "")
-    # self.gsub(/\D/, "")
   end
 end

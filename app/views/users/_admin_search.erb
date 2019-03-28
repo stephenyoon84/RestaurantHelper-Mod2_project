@@ -1,14 +1,14 @@
 <h4>Search Phone Number</h4>
 
-<%= form_tag("/users/#{current_user.id}", method: 'get') do %>
+<%= form_tag("/analytics", method: 'get') do %>
   <%= label_tag(:q, "Search by Phone Number:") %><br>
   <%= text_field_tag(:q) %>
   <%= submit_tag "Search" %>
 <% end %>
 <br>
 <% if !@users.nil? %>
-  <%= link_to @users.name, @users %>
-  <%# @users.cart_total %>
+  <%= link_to @users.name, @users %> <br>
+  Total Spent $<%= number_with_precision(@users.carts.inject(0){|s, i| s + i.menu.price}, :precision => 2) %><br>
   <%= render 'order_history' %>
 <% else %>
   <% if params[:q] %>
