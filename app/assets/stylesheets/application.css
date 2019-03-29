@@ -20,12 +20,14 @@
 
 header {
  background-color: rgba(255, 192, 203, 1);
- height: 100px;
+ height: 200px;
 }
 
 nav {
-  font-size: 25px;
+  font-size: 20px;
   background-color: rgba(255, 192, 203, 1);
+  height: 38px;
+
 }
 
 nav a {
@@ -33,10 +35,14 @@ nav a {
   text-decoration-color: black;
   background-color: rgba(210, 215, 211, 0.5);
   color: white;
-  padding: 14px 25px;
+  padding: 5px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+}
+
+nav a:hover {
+  background-color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,6 +79,7 @@ table, th, td {
 
 div.main {
   background-color: rgba(255, 192, 203, 1);
+  min-height: 600px;
 }
 
 div.content {
@@ -83,6 +90,57 @@ div.content {
   display: inline;
 }
 
-#logout, #login {
+#logout, #login, #edit {
   float: right;
+}
+
+
+
+/* Style The Dropdown Button */
+.dropbtn {
+  text-decoration: none;
+  text-decoration-color: black;
+  background-color: rgba(210, 215, 211, 0.5);
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: grey}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: black;
 }

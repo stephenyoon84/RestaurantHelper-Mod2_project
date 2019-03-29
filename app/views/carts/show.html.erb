@@ -22,7 +22,7 @@
 <% if @total == 0 %>
   <h4> Your cart is currently empty! </h4>
 <% else %>
-  <h4> Your total is: $<%=  number_with_precision(@total, :precision => 2) %></h4>
+  <h4> Your total is: <p class="total">$<%=  number_with_precision(@total, :precision => 2) %></p></h4>
   <%= button_to "Pay for Order", {controller: 'carts', action: 'order'} %>
 <% end %>
 

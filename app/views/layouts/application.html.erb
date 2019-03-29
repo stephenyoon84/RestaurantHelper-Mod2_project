@@ -11,6 +11,7 @@
 
   <body>
     <header>
+      <img src="https://www.mimiholidays.com/sites/mimiholidays.com/files/styles/package_banner/public/packages_banner/Japan%20Cherry%20Blomssom%20banner.gif?itok=1gVi5BdO" alt="Cherry Blossoms." style="width:1000px;height:200px;">
     </header>
     <nav>
       <%= link_to "Home", root_path %>
@@ -21,7 +22,13 @@
           <%= link_to "My Cart", carts_path %>
         <% end %>
 
-        <%= link_to "Profile", user_path(current_user) %>
+        <div class="dropdown">
+          <a class="dropbtn">Profile</a>
+          <div class="dropdown-content">
+            <a href="/users/<%= current_user.id %>">View Profile</a>
+            <a href="/users/<%= current_user.id %>/edit">Edit Settings</a>
+          </div>
+        </div>
 
         <%= form_tag '/logout', id: "logout" do %>
           <%= submit_tag "Log Out" %>

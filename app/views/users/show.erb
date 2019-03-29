@@ -4,7 +4,7 @@
 
 <% if current_user.role == "Admin" %>
   <h3>Role: <%= @user.role %></h3>
-  <h3>Total Spent: $<%= number_with_precision(@user.carts.inject(0){|s, i| s + i.menu.price}, :precision => 2) %></h3>
+  <h3>Total Spent: <p class='total'>$<%= number_with_precision(@user.carts.inject(0){|s, i| s + i.menu.price}, :precision => 2) %></p></h3>
 <% end %>
 
 <div id="editdelete">

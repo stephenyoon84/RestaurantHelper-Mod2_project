@@ -8,7 +8,7 @@
 <br>
 <% if !@users.nil? %>
   <%= link_to @users.name, @users %> <br>
-  Total Spent $<%= number_with_precision(@users.carts.inject(0){|s, i| s + i.menu.price}, :precision => 2) %><br>
+  Total Spent <p class='total'>$<%= number_with_precision(@users.carts.inject(0){|s, i| s + i.menu.price}, :precision => 2) %></p><br>
   Favorite Dish: <%= @favorite_dish %>
   <%= render 'order_history' %>
 <% else %>
