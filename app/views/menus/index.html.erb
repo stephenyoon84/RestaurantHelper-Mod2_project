@@ -1,8 +1,10 @@
 <h1> Menu for Taste of Japan </h1>
 
-<% if session[:user_id] && current_user.role == 'Admin'%>
+<div class="createdish">
+  <% if session[:user_id] && current_user.role == 'Admin'%>
   <%= link_to "Create New Dish", new_menu_path %>
-<% end %>
+  <% end %>
+</div>
 <br>
 
 <% @category_list.each do |category| %>
@@ -20,9 +22,9 @@
         <% category.each do |d| %>
           <tr>
             <td><%= link_to d.name, d %></td>
-            <td><%= number_with_precision(d.price, :precision => 2) %></td>
+            <td class='center_table'>$<%= number_with_precision(d.price, :precision => 2) %></td>
             <% if session[:user_id] %>
-              <td><%= button_to "Add", {controller: 'carts', action: 'create', id: d.id} %></td>
+              <td class='center_table'><%= link_to "Add", {controller: 'carts', action: 'create', id: d.id}, method: 'post' %></td>
             <% end %>
           </tr>
         <% end %>

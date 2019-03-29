@@ -3,7 +3,6 @@
   <head>
     <title>RestaurantHelper</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -30,9 +29,7 @@
           </div>
         </div>
 
-        <%= form_tag '/logout', id: "logout" do %>
-          <%= submit_tag "Log Out" %>
-        <% end %>
+        <%= link_to "Log Out", {controller: 'sessions', action: 'destroy'}, method: 'post', id: "logout" %>
 
         <% if current_user.role == "Chef" %>
           <%= link_to "Cooking List", carts_index_path %>
@@ -44,7 +41,7 @@
 
 
       <% else %>
-        <%= button_to "Log In", login_path, method: :get, id: "login", class: "button" %>
+        <%= link_to "Log In", login_path, id: "login", class: "button" %>
       <% end %>
     </nav>
     <div class="main">

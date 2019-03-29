@@ -1,18 +1,18 @@
-<h4>Search Phone Number</h4>
-
-<%= form_tag("/analytics", method: 'get') do %>
-  <%= label_tag(:q, "Search by Phone Number:") %><br>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag "Search" %>
-<% end %>
-<br>
-<% if !@users.nil? %>
-  <%= link_to @users.name, @users %> <br>
-  Total Spent <p class='total'>$<%= number_with_precision(@users.carts.inject(0){|s, i| s + i.menu.price}, :precision => 2) %></p><br>
-  Favorite Dish: <%= @favorite_dish %>
-  <%= render 'order_history' %>
-<% else %>
-  <% if params[:q] %>
-    <h5>There is no match for this Phone Number</h5>
+<div class="bodycontent">
+  <%= form_tag("/analytics", method: 'get') do %>
+    <%= label_tag(:q, "Search by Phone Number:") %><br>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag "Search" %>
   <% end %>
-<% end %>
+  <br>
+  <% if !@users.nil? %>
+    <%= link_to @users.name, @users %> <br>
+    Total Spent <p class='total'>$<%= number_with_precision(@users.carts.inject(0){|s, i| s + i.menu.price}, :precision => 2) %></p><br>
+    <p id="favorite">Favorite Dish: <%= @favorite_dish %> </p>
+    <%= render 'order_history' %>
+  <% else %>
+    <% if params[:q] %>
+      <h5>There is no match for this Phone Number</h5>
+    <% end %>
+  <% end %>
+</div>
