@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def analytics
     @top_5 =Cart.order_counter[0..4]
     if params[:q]
-      @users = User.find_by(phone_number: params[:q].to_i)
+      @users = User.find_by(phone_number: params[:q].gsub(/\D/, "").to_i)
       if @users
         @favorite_dish = @users.carts.order_counter.max_by{|a| a[1]}[0]
       end
