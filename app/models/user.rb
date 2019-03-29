@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   validates :username, :phone_number, uniqueness: true
+  validates :username, :phone_number, presence: true
   validates :phone_number, length: { is: 10 }
 
   has_many :carts

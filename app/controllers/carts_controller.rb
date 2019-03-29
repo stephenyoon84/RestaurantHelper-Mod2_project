@@ -6,6 +6,7 @@ class CartsController < ApplicationController
     @uncooked_dishes = []
     @all_dishes = Cart.all
     @all_dishes.each {|dish| !dish.done && dish.paid ? @uncooked_dishes << dish : dish }
+    @uncooked_dishes.sort_by!{|d| d.updated_at}
   end
 
   def show

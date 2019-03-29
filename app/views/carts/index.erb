@@ -1,6 +1,7 @@
-<h1>Order list</h1>
+<div class="bodycontent">
+  <h1>Order list</h1>
 
-<% if !@uncooked_dishes.empty? %>
+  <% if !@uncooked_dishes.empty? %>
   <table>
     <thead>
       <tr>
@@ -12,13 +13,15 @@
     <tbody>
       <% @uncooked_dishes.each do |d| %>
       <tr>
-        <td><%= d.user.name %></td>
-        <td><%= d.menu.name  %></td>
-        <td><%= button_to "Done!", {controller: 'carts', action: 'complete_order', id: d.id} %></td>
+        <td class="center_table"><%= d.user.name %></td>
+        <td class="center_table"><%= d.menu.name  %></td>
+        <td class="center_table"><%= link_to "Done!", {controller: 'carts', action: 'complete_order', id: d.id}, method: 'post' %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
-<% else %>
+  <% else %>
   <h2>Currently Order List is Empty. Quick take a break! </h2>
-<% end %>
+  <% end %>
+
+</div>
